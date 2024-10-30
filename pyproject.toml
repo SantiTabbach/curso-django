@@ -1,0 +1,41 @@
+[tool.black]
+line-length = 79
+force-exclude = "migrations"
+
+[tool.isort]
+force_single_line = true
+profile = "black"
+filter_files = true
+line_length = 79
+skip_glob = ["*/migrations/*", "config/*"]
+
+[tool.coverage.run]
+omit = [
+  "manage.py",
+  "*/__init__.py",
+  "*/settings.py",
+  "*/migrations/*",
+  "*/apps.py",
+  "*/tests/*",
+  "*/tests.py",
+  "*/factories/*",
+  "*/fuzzers.py",
+  "*/admin.py",
+  "*/health/*",
+]
+
+[tool.djlint]
+extend_exclude = "htmlcov"
+profile = "django"
+ignore = "H005,H006,H013,H021,H030,H031"
+
+[tool.flake8]
+max-doc-length = 72
+exclude = [
+  ".git",
+  "__pycache__",
+  "*/migrations/*",
+  "__init__.py",
+  "settings.py",
+  ".venv",
+]
