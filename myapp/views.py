@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from .models import Project, Task
 from django.shortcuts import render
+from .forms import CreateNewTask
 
 
 # Create your views here.
@@ -26,4 +27,4 @@ def tasks(req):
 
 
 def create_task(req):
-    return render(req, "create_task.html")
+    return render(req, "create_task.html", {"form": CreateNewTask})
