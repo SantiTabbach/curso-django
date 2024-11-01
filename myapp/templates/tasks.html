@@ -1,6 +1,9 @@
 <h1>Tasks</h1>
 <ul>
 	{% for t in tasks%}
-	<li>{{t.project.name}} - {{t.title}}</li>
+	<li>
+		{{t.project.name}} - {{t.title}} - {%if t.done == True%} DONE {% else %} TO
+		DO{% endif %}
+	</li>
 	{% endfor %}
 </ul>
