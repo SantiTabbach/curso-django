@@ -23,3 +23,7 @@ def projects(req):
 def tasks(req):
     tasks = Task.objects.all()
     return render(req, "tasks.html", {"tasks": tasks})
+
+
+def create_task(req):
+    return render(req, "create_task.html")
