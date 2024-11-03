@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from .models import Project, Task
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import CreateNewTask
 
 
@@ -27,4 +27,12 @@ def tasks(req):
 
 
 def create_task(req):
-    return render(req, "create_task.html", {"form": CreateNewTask})
+    if req.method == "GET":
+        return render(req, "create_task.html", {"form": CreateNewTask})
+    else:
+        Task.objects.create(
+            title=req.POST["title"],
+            description=req.POST["description"],
+            project_id=1,
+        )
+        return redirect("/tasks/")
