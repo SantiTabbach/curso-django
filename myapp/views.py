@@ -23,7 +23,7 @@ def projects(req):
 
 def tasks(req):
     tasks = Task.objects.all()
-    return render(req, "projects/tasks.html", {"tasks": tasks})
+    return render(req, "tasks/tasks.html", {"tasks": tasks})
 
 
 def create_task(req):
@@ -35,7 +35,7 @@ def create_task(req):
             description=req.POST["description"],
             project_id=1,
         )
-        return redirect("/tasks")
+        return redirect("tasks")
 
 
 def create_project(req):
@@ -47,4 +47,4 @@ def create_project(req):
         Project.objects.create(
             name=req.POST["name"],
         )
-        return redirect("/projects")
+        return redirect("projects")
