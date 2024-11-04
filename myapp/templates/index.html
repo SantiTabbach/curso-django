@@ -1,4 +1,9 @@
-<h1>{{title}}</h1>
+{% load static %}
+
+<h1>{{ title }}</h1>
+
+<img src="{% static 'django.png' %}" alt="Django logo" width="200" />
+
 <p>
 	Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem eaque
 	distinctio iusto eum adipisci quibusdam illum accusantium soluta. Excepturi
